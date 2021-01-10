@@ -26,11 +26,6 @@ public class BlogController {
         return "index";
     }
     
-    @RequestMapping(value="/poste", method=RequestMethod.GET)
-    public String poste() {
-    	return "post";
-    }
-    
     @RequestMapping(value="/about", method=RequestMethod.GET)
     public String about() {
     	return "about";
@@ -40,16 +35,28 @@ public class BlogController {
     public String contact(){
     	return "contact";
     }
+ 
+	 @RequestMapping(value="/post", method=RequestMethod.GET)   
+	 public ModelAndView getPost() {
+		 ModelAndView mv = new ModelAndView("post");
+		 List<Post> postes = blogService.findAll();
+		 mv.addObject("post", postes);
+		 return mv;
+	 }
     
-    @RequestMapping(value="/posts", method=RequestMethod.GET)
-    public ModelAndView getPosts(){
-        ModelAndView mv = new ModelAndView("posts");
-        List<Post> posts = blogService.findAll();
-        mv.addObject("posts", posts);
-        return mv;
-    }
+    
+    
+    
+    
+//    @RequestMapping(value="/posts", method=RequestMethod.GET)
+//    public ModelAndView getPosts(){
+//        ModelAndView mv = new ModelAndView("posts");
+//        List<Post> posts = blogService.findAll();
+//        mv.addObject("posts", posts);
+//        return mv;
+//    }
 
-    @RequestMapping(value="/posts/{id}", method=RequestMethod.GET)
+    @RequestMapping(value="/post/{id}", method=RequestMethod.GET)
     public ModelAndView getPostDetails(@PathVariable("id") long id){
         ModelAndView mv = new ModelAndView("postDetails");
         Post post = blogService.findById(id);
@@ -70,6 +77,6 @@ public class BlogController {
         }
         post.setData(LocalDate.now());
         blogService.save(post);
-        return "redirect:/posts";
+        return "redirect:/post";
     }
 }
