@@ -44,10 +44,6 @@ public class BlogController {
 		 return mv;
 	 }
     
-    @RequestMapping(value="/postEditar", method=RequestMethod.GET)
-    public String postEditar() {
-    	return "postEditar";
-    }
     
     
     
@@ -66,6 +62,14 @@ public class BlogController {
         mv.addObject("post", post);
         return mv;
     }
+    
+    @RequestMapping(value="/postEditar", method=RequestMethod.GET)
+	public ModelAndView postEditar(@PathVariable("id") long id){
+		ModelAndView mv = new ModelAndView("postEditar");
+		Post post = blogService.findById(id);
+		mv.addObject("postEditar", post);
+		return mv;
+	}
 
     @RequestMapping(value="/newpost", method=RequestMethod.GET)
     public String getPostForm(){

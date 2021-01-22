@@ -34,13 +34,15 @@
             <th:block th:include="mensagemValidacao"></th:block>
             <form method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="titulo" placeholder="Título *">
+                    <input type="text" class="form-control" name="titulo" th:text="${post.titulo}>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="autor" placeholder="Autor *">
+                    <input type="text" class="form-control" name="autor" th:text="${post.autor}">
                 </div>
 
-                <textarea id="summernote" type="text" class="form-control" name="texto" placeholder="Texto *"></textarea>
+                <textarea id="summernote" type="text" class="form-control" name="texto">
+                
+                <span th:utext="${post.texto}"></span></textarea>
 
                 <small class="form-text text-muted">(*) Campos obrigatórios</small>
 
