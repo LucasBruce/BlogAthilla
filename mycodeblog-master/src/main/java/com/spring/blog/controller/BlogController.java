@@ -44,7 +44,10 @@ public class BlogController {
 		 return mv;
 	 }
     
-    
+    @RequestMapping(value="/postEditar", method=RequestMethod.GET)
+    public String postEditar() {
+    	return "postEditar";
+    }
     
     
     

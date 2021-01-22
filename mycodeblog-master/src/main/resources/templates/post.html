@@ -80,7 +80,7 @@
 <header>   
      <nav class="navbar navbar-light ">
       <span class="navbar-brand mb-0 h1" style="font-weight: bold;"></span>
-      <a href="/newpost" class="btn btn-primary" role="button" >Novo Post</a>
+      <a href="/newpost" class="btn btn-primary" role="button" >Novo Artigo</a>
      </nav>
 </header>
 
@@ -94,6 +94,12 @@
         </nav>
         <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="post : ${post}">
             <div class="card-body" style="background-color: rgb(222, 221, 218);">
+             <div class="d-flex align-items-baseline">
+              <button href="/newpost" type="button" class="btn btn-outline-success pull-center">Novo</button>
+			  <button href="/postEditar" class="btn btn-outline-primary" type="button">Editar</button>
+			  <button href="#" class="btn btn-outline-danger" type="button">Excluir</button>
+			</div>
+
                 <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
                     <span th:text="${post.autor}"></span>
                     <span th:text="${post.data}"></span>
