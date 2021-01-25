@@ -15,6 +15,7 @@ public class BlogServiceImpl implements BlogService {
     @Autowired
     BlogRepository blogRepository;
 
+    
     @Override
     public List<Post> findAll() {
         return blogRepository.findAll(sortByIdAsc());
@@ -32,5 +33,10 @@ public class BlogServiceImpl implements BlogService {
 
     private Sort sortByIdAsc() {
         return new Sort(Sort.Direction.DESC, "id");
+    }
+    
+    @Override
+    public void delete(long id) {
+    	blogRepository.deleteById(id);
     }
 }

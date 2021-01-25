@@ -5,6 +5,7 @@ import com.spring.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -63,14 +64,14 @@ public class BlogController {
         return mv;
     }
     
-    @RequestMapping(value="/postEditar", method=RequestMethod.GET)
-	public ModelAndView postEditar(@PathVariable("id") long id){
-		ModelAndView mv = new ModelAndView("postEditar");
-		Post post = blogService.findById(id);
-		mv.addObject("postEditar", post);
-		return mv;
-	}
-
+    @RequestMapping(value="/post/detailEditar{id}", method=RequestMethod.GET)
+    public ModelAndView getDetailEditar(@PathVariable("id") long id){
+        ModelAndView mv = new ModelAndView("detailEditar");
+        Post post = blogService.findById(id);
+        mv.addObject("post", post);
+        return mv;
+    }
+    
     @RequestMapping(value="/newpost", method=RequestMethod.GET)
     public String getPostForm(){
         return "postForm";
@@ -86,4 +87,11 @@ public class BlogController {
         blogService.save(post);
         return "redirect:/post";
     }
+    
+    @RequestMapping("/deleter/{id}")
+    public String deletePost(long id) {
+    	blogService.delete(id);
+    	return "redirect:/post";
+    }
+    
 }

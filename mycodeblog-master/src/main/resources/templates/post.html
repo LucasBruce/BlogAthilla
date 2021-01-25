@@ -82,17 +82,18 @@
   <section>
     <div class="container"  style="width: 60%; padding-bottom: 30px;">
         <nav aria-label="breadcrumb">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <a href="/newpost" type="button" class="btn btn-outline-success">Novo</a>
+        </div>      
             <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
-                <li class="breadcrumb-item active" aria-current="page">Artigos</li>
-            </ol>
-        </nav>
+                <li class="breadcrumb-item active" aria-current="page">Artigos</li>         
+            </ol>         
+        </nav>        
         <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="post : ${post}">
-            <div class="card-body" style="background-color: rgb(222, 221, 218);">
-             <div style="margin-top: 20px; margin-left:350px;">
               <a href="/newpost" type="button" class="btn btn-outline-success">Novo</a>
-			  <a href="th:href="${(#mvc.url('EC#postEditar').arg(0, post.id)).build()}"" class="btn btn-outline-primary" type="button">Editar</a>
-			  <a href="#" class="btn btn-outline-danger" type="button">Excluir</a>
-             </div>     
+			  <a th:href="${(#mvc.url('BC#getDetailEditar').arg(0, post.id)).build()}" class="btn btn-outline-primary" type="button">Editar</a>
+			  <a th:href="${(#mvc.url('BC#deletePost').arg(0, post.id)).build()}" class="btn btn-outline-danger" type="button">Excluir</a>
+            <div class="card-body" style="background-color: rgb(222, 221, 218);">  
                 <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
                     <span th:text="${post.autor}"></span>
                     <span th:text="${post.data}"></span>
@@ -100,8 +101,8 @@
                 <a th:href="${(#mvc.url('BC#getPostDetails').arg(0, post.id)).build()}"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;"><span th:text="${post.titulo}"></span></h4></a>
                 <p class="card-text"><span th:utext="${#strings.abbreviate(post.texto,400)} "></span></p>
                 <!--<a th:href="${(#mvc.url('BC#getPostDetails').arg(0, post.id)).build()}" class="card-link">Acessar</a>-->
-            </div>
-        </div>
+            </div>            
+        </div>      
     </div>
     </section>
 
