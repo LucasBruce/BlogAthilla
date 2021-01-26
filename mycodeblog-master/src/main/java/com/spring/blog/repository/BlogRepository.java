@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Transactional
 public interface BlogRepository extends JpaRepository<Post, Long> {
 
-	@Query("select p from tb_post p where p.titulo like %?1%")
-	List<Post> findPostByName(String nome);
+//	@Query("select p from tb_post p where p.titulo like %?1%")
+//	List<Post> findPostByName(String nome);
 	
 }

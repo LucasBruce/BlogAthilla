@@ -42,9 +42,9 @@ public class BlogServiceImpl implements BlogService {
     	blogRepository.deleteById(id);
     }
     
-    @Override
-    public List<Post> findPostByName(String nome) {
-        return blogRepository.findPostByName(nome);
-    }
+//    @Override
+//    public List<Post> findPostByName(String nome) {
+//        return blogRepository.findPostByName(nome);
+//    }
 	
 }

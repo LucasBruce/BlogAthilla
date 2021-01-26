@@ -100,11 +100,11 @@ public class BlogController {
     	return "redirect:/post";
     }
     
-    @RequestMapping(value="/pesquisarArtigo", method=RequestMethod.POST)
-    public ModelAndView pesquisar(@RequestParam("artigopesquisa") String artigopesquisa) {
-    	ModelAndView mv = new ModelAndView("post");
-    	mv.addObject("post", blogRepository.findPostByName(artigopesquisa));
-    	return mv;
-    }
+//    @RequestMapping(value="/pesquisarArtigo", method=RequestMethod.POST)
+//    public ModelAndView pesquisar(@RequestParam("artigopesquisa") String artigopesquisa) {
+//    	ModelAndView mv = new ModelAndView("post");
+//    	mv.addObject("post", blogRepository.findPostByName(artigopesquisa));
+//    	return mv;
+//    }
     
 }
