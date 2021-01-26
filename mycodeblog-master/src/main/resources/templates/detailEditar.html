@@ -32,7 +32,7 @@
                     <input type="text" class="form-control" name="autor" th:field="${post.autor}">
                 </div>
                 
-                <textarea type="text" class="form-control" name="texto" th:field="${post.texto}"></textarea>
+                <textarea id="summernote" type="text" class="form-control" name="texto" th:field="${post.texto}"></textarea>
                 
                 <small class="form-text text-muted">(*) Campos obrigatórios</small>
 
@@ -43,5 +43,12 @@
         </div>
     </div>
     </main>
+    <script>
+    $('#summernote').summernote({
+        placeholder: 'Texto *',
+        tabsize: 2,
+        height: 300
+    });
+</script>
 </body>
 </html>

@@ -86,14 +86,24 @@
           <a href="/newpost" type="button" class="btn btn-outline-success">Novo</a>
         </div>      
             <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
-                <li class="breadcrumb-item active" aria-current="page">Artigos</li>         
-            </ol>         
-        </nav>        
+                <li class="breadcrumb-item active" aria-current="page">Artigos</li>                   
+            </ol>  
+            <form method="post" class="row g-3">
+               <div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder="Título..." name="artigopesquisa">
+				  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar</button>
+				</div>
+             </form>   
+        </nav>
+                  
         <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="post : ${post}">
+           
+            <div class="card-body" style="background-color: rgb(222, 221, 218);">  
+             <div class="d-grid gap-2 col-6 mx-auto">
               <a href="/newpost" type="button" class="btn btn-outline-success">Novo</a>
 			  <a th:href="${(#mvc.url('BC#getDetailEditar').arg(0, post.id)).build()}" class="btn btn-outline-primary" type="button">Editar</a>
 			  <a th:href="${(#mvc.url('BC#deletePost').arg(0, post.id)).build()}" class="btn btn-outline-danger" type="button">Excluir</a>
-            <div class="card-body" style="background-color: rgb(222, 221, 218);">  
+			</div>
                 <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
                     <span th:text="${post.autor}"></span>
                     <span th:text="${post.data}"></span>

@@ -5,9 +5,11 @@ import com.spring.blog.repository.BlogRepository;
 import com.spring.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 @Service
 public class BlogServiceImpl implements BlogService {
@@ -39,4 +41,10 @@ public class BlogServiceImpl implements BlogService {
     public void delete(long id) {
     	blogRepository.deleteById(id);
     }
+    
+    @Override
+    public List<Post> findPostByName(String nome) {
+        return blogRepository.findPostByName(nome);
+    }
+	
 }
