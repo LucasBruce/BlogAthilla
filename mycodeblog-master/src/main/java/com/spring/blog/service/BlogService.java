@@ -9,5 +9,5 @@ public interface BlogService {
     Post findById(long id);
     Post save(Post post);
     void delete(long id);
-//    List<Post> findPostByName(String nome);
+
 }

@@ -16,12 +16,6 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyCodeBlog</span>
-        </nav>
-    </header>
-
     <section>
     <div class="container"  style="width: 70%;">
         <nav aria-label="breadcrumb">
@@ -32,7 +26,7 @@
         </nav>
         <div>
             <th:block th:include="mensagemValidacao"></th:block>
-            <form method="post">
+            <form method="post" th:object="${postbj}">
                 <div class="form-group">
                     <input type="text" class="form-control" name="titulo" placeholder="Título *">
                 </div>

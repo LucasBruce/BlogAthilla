@@ -20,6 +20,7 @@ public class BlogServiceImpl implements BlogService {
     
     @Override
     public List<Post> findAll() {
+    	
         return blogRepository.findAll(sortByIdAsc());
     }
 
@@ -41,10 +42,6 @@ public class BlogServiceImpl implements BlogService {
     public void delete(long id) {
     	blogRepository.deleteById(id);
     }
-    
-//    @Override
-//    public List<Post> findPostByName(String nome) {
-//        return blogRepository.findPostByName(nome);
-//    }
+
 	
 }

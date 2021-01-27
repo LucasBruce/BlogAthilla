@@ -88,9 +88,9 @@
             <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
                 <li class="breadcrumb-item active" aria-current="page">Artigos</li>                   
             </ol>  
-            <form method="post" class="row g-3">
+            <form th:action="@{/pesquisarArtigo}" class="row g-3">
                <div class="input-group mb-3">
-				  <input type="text" class="form-control" placeholder="Título..." name="artigopesquisa">
+				  <input type="text" class="form-control" placeholder="Título..." name="nome" id="nome" th:value="${nome}">
 				  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar</button>
 				</div>
              </form>   
